@@ -26,7 +26,7 @@
 # s consists of English letters, digits, symbols and spaces.
 
 class Solution:
-    def lengthOfLongestSubstring(self, s: str, k: str) -> int:
+    def lengthOfLongestSubstring(self, s: str) -> int:
 
         char_set = set()
         left = 0
