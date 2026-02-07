@@ -29,7 +29,7 @@
 #
 #
 # Follow-up: Could you solve the problem in linear time and in O(1) space?
-
+import statistics
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        return mode(nums)
+        return statistics.mode(nums)
