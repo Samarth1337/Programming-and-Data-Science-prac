@@ -38,17 +38,19 @@
 #
 # Follow up: Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
 
-# nlogn
+# o(n)
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        mapping = dict()
-        for i in range(len(nums)):
-            if nums[i] not in mapping:
-                mapping[nums[i]] = 1
-            else:
-                mapping[nums[i]] += 1
-        s_map = sorted(mapping.keys(), key=lambda x: mapping[x], reverse = True)
-        res = list()
-        for i in range(k):
-            res.append(s_map[i])
-        return res
+        counts = {}
+        for n in nums:
+            counts[n] = counts.get(n, 0) + 1
+        buckets = []
+        for i in range(len(nums)+1):
+            buckets.append([])
+        for key, val in counts.items():
+            buckets[val].append(key)
+        res = []
+        for i in range(len(buckets)-1, 0, -1):
+            res.append(buckets[i])
+            if len(res) == k:
+                return res
