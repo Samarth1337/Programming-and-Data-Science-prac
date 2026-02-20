@@ -51,6 +51,7 @@ class Solution:
             buckets[val].append(key)
         res = []
         for i in range(len(buckets)-1, 0, -1):
-            res.append(buckets[i])
-            if len(res) == k:
-                return res
+            for num in buckets[i]:
+                res.append(num)
+                if len(res) == k:
+                    return res
