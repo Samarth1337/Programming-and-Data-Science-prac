@@ -36,8 +36,8 @@ class NumArray:
     def __init__(self, nums: List[int]):
         self.l = len(nums)
         self.copy = nums
-        self.prefix = [0] * (l + 1)
-        for i in range(l):
+        self.prefix = [0] * (self.l + 1)
+        for i in range(self.l):
             self.prefix[i + 1] = nums[i] + self.prefix[i]
         # print(self.prefix)
 
